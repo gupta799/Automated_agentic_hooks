@@ -1,0 +1,12 @@
+# Exclude auto-generated learning data (contains session-specific runtime data)
+.claude/learning/tool_log.jsonl
+.claude/learning/session_log.jsonl
+.claude/learning/compact_log.jsonl
+.claude/learning/context_log.jsonl
+.claude/learning/permission_log.jsonl
+.claude/learning/pre_compact_snapshot.md
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
