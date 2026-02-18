@@ -1,0 +1,78 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_DIR:-$(dirname \"$0\")}\"/session_start.py",
+            "timeout": 30,
+            "statusMessage": "Loading session context and learning..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_DIR:-$(dirname \"$0\")}\"/stop_test_guard.py",
+            "timeout": 120,
+            "statusMessage": "Running test validation gate..."
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_DIR:-$(dirname \"$0\")}\"/pre_compact.py",
+            "timeout": 30,
+            "statusMessage": "Saving learning insights before compaction..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_DIR:-$(dirname \"$0\")}\"/learning_logger.py",
+            "async": true,
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_DIR:-$(dirname \"$0\")}\"/auto_permissions.py",
+            "timeout": 10,
+            "statusMessage": "Evaluating permission policy..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_DIR:-$(dirname \"$0\")}\"/context_monitor.py",
+            "timeout": 10,
+            "statusMessage": "Checking context usage..."
+          }
+        ]
+      }
+    ]
+  }
+}

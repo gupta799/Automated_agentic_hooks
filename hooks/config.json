@@ -1,0 +1,7 @@
+{
+  "test_command": null,
+  "test_timeout_seconds": 120,
+  "context_warn_threshold_kb": 300,
+  "context_compact_threshold_kb": 400,
+  "context_full_window_kb": 800
+}

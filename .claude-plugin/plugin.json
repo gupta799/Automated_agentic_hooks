@@ -1,0 +1,13 @@
+{
+  "name": "automated-agentic-hooks",
+  "description": "Self-managing Claude Code agent: persistent memory across sessions, automatic context compaction, test gate enforcement, and auto-approval of safe operations.",
+  "version": "1.0.0",
+  "author": {
+    "name": "gupta799",
+    "url": "https://github.com/gupta799"
+  },
+  "homepage": "https://github.com/gupta799/Automated_agentic_hooks",
+  "repository": "https://github.com/gupta799/Automated_agentic_hooks",
+  "license": "MIT",
+  "keywords": ["hooks", "automation", "context", "testing", "learning", "permissions"]
+}
